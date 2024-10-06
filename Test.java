@@ -33,22 +33,10 @@ public class Test {
             int defenderScore = 0;
             int[] attackerArr = new int[3];
             int[] defenderArr = new int[2];
-            for(int i = 0; i < 3; i++){
-                attackerArr[i] = firstDice.RollOnce(); //Stores all three of the attacker's rolls
-            }
-            Arrays.sort(attackerArr); //Sorts rolls low to high
-            for(int i = 0; i < 2;  i++){
-                defenderArr[i] = secondDice.RollOnce(); //Stores all three of the defender's rolls
-            }
-            Arrays.sort(defenderArr); //Sorts rolls low to high
-            for(int j = 2; j > 0; j++){ //Comparing dice rolls from high to low
-                if(attackerArr[j] > defenderArr[j]){
-                    attackerScore += 1;  //If attacker has a high roll, they get one point
-                }
-                else if(attackerArr[j] < defenderArr[j]){
-                    defenderScore += 1; //If defender has a high roll, they get one point
-                }
-            }
+
+            attackerArr = firstDice.DiceArray(3);
+            defenderArr =  secondDice.DiceArray(2);
+            
             System.out.println("Attacker Score: " + attackerScore); //Print attackerScore
             System.out.println("Defender Score: " + defenderScore);  //Print defenderScore
 
